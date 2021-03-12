@@ -8,9 +8,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class HomeController {
-
-    @Autowired
     private User user;
+
+    public HomeController(User user){
+        this.user = user;
+    }
 
     @GetMapping("/")
     public ResponseEntity<String> index(){
