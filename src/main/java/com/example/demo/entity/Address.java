@@ -3,19 +3,17 @@ package com.example.demo.entity;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Data
-public class User {
+public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    private String name;
+    private String location;
 
-    private String email;
-
-    @OneToMany(mappedBy = "user")
-    private List<Address> addresses;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 }
